@@ -29,8 +29,11 @@ CD Pipeline - Downloading the LTS artifact from artifactory and running the new 
 
 11. Create a release pipeline definition -Click on "add a new artifact"
 12. Configure the artifact trigger: Continuous deployment trigger: Enabled
-13. Access to the environment configuration:
+13. Access to the environment configuration: </br>
  ![image](https://user-images.githubusercontent.com/71599740/139234710-0491138e-be7d-4f43-88d6-89b1ab2a0ada.png)
+ ![image](https://user-images.githubusercontent.com/71599740/139236417-9a0682e6-a2d9-4b12-81cb-0c2156db9918.png)
+![image](https://user-images.githubusercontent.com/71599740/139236540-e65c591b-72e7-4896-a995-c73a101836ac.png)
+
  
 
 
