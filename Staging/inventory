@@ -1,0 +1,3 @@
+[staging]
+slave1       ansible_user={{ username }}
+slave2       ansible_user={{ username }}

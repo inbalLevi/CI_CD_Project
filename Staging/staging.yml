@@ -1,0 +1,95 @@
+---
+
+
+- hosts: staging
+  become: yes
+  tasks:
+
+    - name: restart App
+      become: yes
+      command: "rm -rf bootcamp-app/"
+      args:
+       chdir: /home/{{ USERNAME }}
+
+    - name: update nodejs package
+      ansible.builtin.shell: curl -fsSL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+
+    - name: install nodejs
+      apt:
+        name: nodejs
+        state: present
+
+
+    - name: Update apt-get repo and cache
+      become: yes
+      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+
+
+    - name: Upgrade all apt packages
+      become: yes
+      apt: upgrade=dist force_apt_get=yes
+
+
+
+
+    - name: git clone repo
+      shell: git clone https://github.com/inbalLevi/bootcamp-app.git
+      args:
+        chdir: /home/{{ USERNAME }}
+
+    - name: create .env file
+      copy:
+        dest: "bootcamp-app/.env"
+        content: |
+
+          # Host configuration
+          PGHOST={{ servername }}
+          PGUSERNAME=postgres@{{ servername }}
+          PGDATABASE=postgres
+          PGPASSWORD={{ password }}
+          PGPORT=5432
+
+          # Node Weight Tracker
+          HOST_URL=http://{{ host_url }}:8080
+          COOKIE_ENCRYPT_PWD=superAwesomePasswordStringThatIsAtLeast32CharactersLong!
+          NODE_ENV=development
+
+          # Okta configuration
+          OKTA_ORG_URL=https://{{ domain }}
+          OKTA_CLIENT_ID={{ clientid }}
+          OKTA_CLIENT_SECRET={{ secret }}
+
+    - name: Changing perm of "ScriptBoot.sh", adding "+x"
+      file: dest=/home/{{ USERNAME }}/bootcamp-app/script.sh mode=+x
+
+
+    - name: Creates an entry like "@reboot /some/job.sh"
+      ansible.builtin.cron:
+          name: "a job for reboot"
+          special_time: reboot
+          job: "/home/{{ USERNAME }}/bootcamp-app/script.sh"
+
+    - name: install dependencies
+      become: yes
+      command: "npm install {{ item }}"
+      args:
+        chdir: /home/{{ USERNAME }}/bootcamp-app
+      with_items:
+        - '@hapi/hapi@19'
+        - '@hapi/bell@12'
+        - '@hapi/boom@9'
+        - '@hapi/cookie@11'
+        - '@hapi/inert@6'
+        - '@hapi/joi@17'
+        - '@hapi/vision@6'
+        - 'dotenv@8'
+        - 'ejs@3'
+        - 'postgres@1'
+
+
+    - name: install nodemon
+      become: yes
+      command: "npm install --save-dev nodemon@2"
+      args:
+        chdir: /home/{{ USERNAME }}/bootcamp-app
+
