@@ -2,21 +2,21 @@
  
 # CI_CD_WEEK7
 ## CI/CD Pipeline with azure devops 
-Configure CI/CD pipelines to deploy the Node Weight Tracker application for 2 environments: Staging and Production.
-Project environment:
-![image](https://user-images.githubusercontent.com/71599740/140196910-6b2564d3-362f-48e7-a236-f725bdaaabef.png)
+Configure CI/CD pipelines to deploy the Node Weight Tracker application for 2 environments: Staging and Production. </br>
+The goal:
+![image](https://user-images.githubusercontent.com/71599740/140197294-11143f63-c432-4c57-b5b7-13827e8c9075.png)
 
 Welcome To azure devops!
-![image](https://user-images.githubusercontent.com/71599740/139231659-f2e624e9-9b26-431d-91e8-84a2e4dd297a.png) 
+![image](https://user-images.githubusercontent.com/71599740/140197381-d21ebd72-8d92-49ac-9d9e-de9fb732c762.png)
 
 There are 2 pipelines:
 CI pipeline - creating an artifact and uploading to Artifactory
 CD Pipeline - Downloading the LTS artifact from artifactory and running the new app.
 
-
 ## STEPS:
-1. Configure two agents: my-pool and Prod-pool One for the CI and one for the CD - https://www.youtube.com/watch?v=psa8xfJ0-zI&ab_channel=Raaviblog
-2. run the agent as a systemd service: https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-linux?view=azure-devops
+* 
+1. Configure an agent: [agent-pool] (https://www.youtube.com/watch?v=psa8xfJ0-zI&ab_channel=Raaviblog)
+2. run the agent as a systemd service: [service] (https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-linux?view=azure-devops)
 3. Import a project repository
 4. Create a new artifacts feed
 5. Created the build pipeline using the visual editor
