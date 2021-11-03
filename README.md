@@ -43,7 +43,22 @@ CD Pipeline - Downloading the LTS artifact from artifactory and running the new 
 * finally this is the full ci-cd:
 ![image](https://user-images.githubusercontent.com/71599740/140199166-fac63c90-8781-4394-8dcb-7dd1587503e5.png)
 
+![staging](https://user-images.githubusercontent.com/71599740/140199673-2fa5437c-cd46-40ec-acdf-889e0a97b788.PNG)
+![prod](https://user-images.githubusercontent.com/71599740/140199721-424b543a-9517-4f74-99c4-f2a21ad6c287.PNG)
+
+
 If you would like to make a change to the app push the new commit to the master branch and the pipelines will do the rest :)
+
+
+# Emphasis:
+* To provision the infrastructure I've used my previous project: https://github.com/inbalLevi/CI_CD_Ansible
+* To install all dependencies on the nodes and to deploy and run the application for the first time I've used this project: https://github.com/inbalLevi/bootcamp-app
+* The terraform repo: https://github.com/inbalLevi/CI_CD_Terraform
+
+
+
+
+
 
 
 
