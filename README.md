@@ -2,10 +2,10 @@
 
 ## CI/CD Pipeline with azure devops 
 Configure CI/CD pipelines to deploy the Node Weight Tracker application for 2 environments: Staging and Production. </br>
-The goal:
+### The goal:
 ![image](https://user-images.githubusercontent.com/71599740/140197294-11143f63-c432-4c57-b5b7-13827e8c9075.png)
 
-Welcome To azure devops!
+### Welcome To azure devops!
 ![image](https://user-images.githubusercontent.com/71599740/140197381-d21ebd72-8d92-49ac-9d9e-de9fb732c762.png)
 
 There are 2 pipelines:
