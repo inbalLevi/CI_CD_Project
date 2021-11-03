@@ -2,15 +2,16 @@
  
 # CI_CD_WEEK7
 ## CI/CD Pipeline with azure devops 
+Configure CI/CD pipelines to deploy the Node Weight Tracker application for 2 environments: Staging and Production.
+Project environment:
+![image](https://user-images.githubusercontent.com/71599740/140196910-6b2564d3-362f-48e7-a236-f725bdaaabef.png)
 
 Welcome To azure devops!
 ![image](https://user-images.githubusercontent.com/71599740/139231659-f2e624e9-9b26-431d-91e8-84a2e4dd297a.png) 
 
 There are 2 pipelines:
-
 CI pipeline - creating an artifact and uploading to Artifactory
 CD Pipeline - Downloading the LTS artifact from artifactory and running the new app.
-
 
 
 ## STEPS:
